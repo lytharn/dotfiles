@@ -1,0 +1,74 @@
+[user]
+    email = lytharn@users.noreply.github.com
+    name = lytharn
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    ci = commit
+    cp = cherry-pick
+    amend = commit --amend --no-edit
+    l = log --graph --pretty=jellyone
+    lt = log --graph --pretty=jellyone --first-parent
+    lr = log -15 --reverse --pretty=jellyone
+    ltr = log -15 --reverse --pretty=jellyone --first-parent
+    la = log --graph --pretty=jellyone --all
+    ll = log --graph --pretty=jellyfull
+    llt = log --graph --pretty=jellyfull --first-parent
+    lla = log --graph --pretty=jellyfull --all
+    rl = reflog --pretty=jellyref
+    rlr = reflog -15 --reverse --pretty=jellyref
+    rll = reflog --pretty=jellyreffull
+    clear-all = -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 -c gc.rerereresolved=0 -c gc.rerereunresolved=0 -c gc.pruneExpire=now gc
+    clear-reflog = -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 gc
+[core]
+    editor = nvim
+[grep]
+    lineNumber = true
+[diff]
+    algorithm = histogram
+    renames = copies
+[log]
+    decorate = short
+[merge]
+    conflictstyle = diff3
+[color "branch"]
+    current = 107
+    local = 68
+    remote = 167
+[color "diff"]
+    context = 145
+    meta = 179
+    frag = 75
+    func = 133
+[color "decorate"]
+    branch = 68
+    remoteBranch = 167
+    tag = 133
+    stash = 179
+    HEAD = 107
+[color "grep"]
+    filename = 107
+    lineNumber = 179
+    matchSelected = 167
+[color "interactive"]
+    prompt = 68
+    header = 179
+    help = 107
+[color "status"]
+    header = 145
+    added = 107
+    changed = 68
+    untracked = 133
+    branch = 107
+    nobranch = 167
+    unmerged = 167
+[pretty]
+    jellyone = format:%C(179)%h %C(reset)%s %C(68)%an %C(107)(%cr) %C(167)%d
+    jellyfull = format:%C(145)Commit: %C(179)%H %C(167)%d%n%C(145)Author: %C(75)'%an' <%ae> %C(107)(%ai)%n%C(145)Committer: %C(68)'%cn' <%ce> %C(107)(%ci)%C(145)%n%B
+    jellyref = format:%C(179)%h %C(107)%gd %C(reset)%s %C(107)(%cr) %C(167)%d
+    jellyreffull = format:%C(145)Selector: %C(107)%gD%n%C(145)Commit: %C(179)%H %C(167)%d%n%C(145)Author: %C(75)'%an' <%ae> %C(107)(%ai)%n%C(145)Committer: %C(68)'%cn' <%ce> %C(107)(%ci)%C(145)%n%B
+[format]
+    pretty = jellyone
+[push]
+    default = simple
