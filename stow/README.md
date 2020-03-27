@@ -1,4 +1,4 @@
-## Config files for [`stow`](https://www.gnu.org/software/stow/), the symlink farm manager
+## [`stow`](https://www.gnu.org/software/stow/)
 
     ├── .stow-global-ignore     Ignore files to install from a package
     └── .stowrc                 Set $HOME as default install location
