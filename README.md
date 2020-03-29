@@ -97,4 +97,4 @@ This is uninstalls and installs a package.
 This is useful for pruning obsolete symlinks from the install location after updating a package.
 
 ## Thanks to
-I have use pretty much the same rules/structure as [F-dotfiles](https://github.com/Kraymer/F-dotfiles).
+I have used pretty much the same rules/structure as [F-dotfiles](https://github.com/Kraymer/F-dotfiles).
