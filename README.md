@@ -25,7 +25,7 @@ Dotfiles that are organized using GNU Stow and a set of rules.
 
 When needed, special install instructions are present in package `README.md` file.
 
-See [stow ducumentation](https://www.gnu.org/software/stow/manual/html_node/Installing-Packages.html)
+See [stow documentation](https://www.gnu.org/software/stow/manual/html_node/Installing-Packages.html)
 for more info on how stow installs a package.
 
 ## Rules
@@ -93,7 +93,7 @@ Uninstall desired package in:
   * `$HOME`: `stow -D <package>`
   * `/`: `stow -t / -D <Package>`
 
-See [stow ducumentation](https://www.gnu.org/software/stow/manual/html_node/Deleting-Packages.html)
+See [stow documentation](https://www.gnu.org/software/stow/manual/html_node/Deleting-Packages.html)
 for more info on how stow uninstalls a package.
 
 ## Reinstall package
