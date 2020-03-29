@@ -17,7 +17,7 @@ Dotfiles that are organized using GNU Stow and a set of rules.
 ## Install
 
 1. Install GNU Stow via package handler or build from [source](http://ftp.gnu.org/gnu/stow/)
-1. Clone the repository : `git clone https://github.com/lytharn/slask-dotfiles.git ~/`
+1. Clone this repository
 1. Setup stow: `stow -t ~ stow`
 1. Install desired package in:
   * `$HOME`: `stow <package>`
