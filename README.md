@@ -36,24 +36,33 @@ For this to work, stow and a set of rules are required.
 
 The rules are probably best shown using an example that contains all the rules.
 
-    ├── package_in_home                 A lower letter directory containing dotfiles to install in
+    ├── package_in_home                 A lower letter directory containing files to install in
     │   │                               `$HOME` (the default).
+    │   │                               Use stow package_in_home to install package.
     │   └── README.md
-    ├── Package_in_root                 A first upper letter directory containing dotfiles to
+    ├── Package_in_root                 A first upper letter directory containing files to
     │   │                               install in `/` and not in `$HOME`.
-    │   │                               Use stow -t / <package_directory> to install package.
+    │   │                               Use stow -t / Package_in_root to install package.
     │   └── README.md
-    ├── directory@                      A directory with packages for different environments
+    ├── package@                        A directory with packages for different environments
     │   │
-    │   ├── _common                     Directory to reuse common files across different environments.
-    │   │   └── config                  Directory that is linked to from the packages.
-    │   ├── @mac                        Directory containing specific files for "mac" environment.
+    │   ├── _common                     A directory to reuse common files across different environments.
+    │   │   │
+    │   │   └── config                  A directory that is linked to from the packages.
+    │   │
+    │   ├── @mac                        A directory containing specific files for "mac" environment.
+    │   │   │                           Use stow package@/@mac to install package.
+    │   │   │
     │   │   └── macrc                   Symlink to ../_common/config
-    │   ├── @linux                      Directory containing specific files for "linux" environment.
+    │   │
+    │   ├── @linux                      A directory containing specific files for "linux" environment.
+    │   │   │                           Use stow package@/@linux to install package.
+    │   │   │
     │   │   └── linuxrc                 Symlink to ../_common/config
     │   └── README.md
     ├── README.md                       This file
-    └── stow                            A directory containing dotfiles for stow.
+    │
+    └── stow                            A directory containing files to install for stow.
                                         Need to be installed first so that stow behaves correctly.
 
 ### Naming scheme
@@ -81,8 +90,8 @@ for meaning and syntax of the ignore files.
 ## Uninstall package
 
 Uninstall desired package in:
-  * `$HOME`: `stow -D <package_directory>`
-  * `/`: `stow -t / -D <Package_directory>`
+  * `$HOME`: `stow -D <package>`
+  * `/`: `stow -t / -D <Package>`
 
 See [stow ducumentation](https://www.gnu.org/software/stow/manual/html_node/Deleting-Packages.html)
 for more info on how stow uninstalls a package.
@@ -90,8 +99,8 @@ for more info on how stow uninstalls a package.
 ## Reinstall package
 
 Reinstall desired package in:
-  * `$HOME`: `stow -R <package_directory>`
-  * `/`: `stow -t / -R <Package_directory>`
+  * `$HOME`: `stow -R <package>`
+  * `/`: `stow -t / -R <Package>`
 
 This is uninstalls and installs a package.
 This is useful for pruning obsolete symlinks from the install location after updating a package.
