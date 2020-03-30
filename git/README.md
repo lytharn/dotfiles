@@ -1,3 +1,6 @@
 ## [`git`](https://git-scm.com/)
 
-    └── .gitconfig
+~
+└── .config
+    └── git
+        └── config

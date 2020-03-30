@@ -1,7 +1,8 @@
 ## [`stow`](https://www.gnu.org/software/stow/)
 
-    ├── .stow-global-ignore     Ignore files to install from a package
-    └── .stowrc                 Set $HOME as default install location
+~
+├── .stow-global-ignore     Ignore files to install from a package
+└── .stowrc                 Set $HOME as default install location
 
 ### Install notes
 

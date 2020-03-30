@@ -1,9 +1,10 @@
 ## [`tmux`](https://tmux.github.io/)
 
-    ├── .config
-    │   └── tmux
-    │       └── .tmuxline.snapshot  Set vim airline theme in tmux
-    └── .tmux.conf                  Config file for tmux
+~
+├── .config
+│   └── tmux
+│       └── .tmuxline.snapshot  Set vim airline theme in tmux
+└── .tmux.conf                  Config file for tmux
 
 ### Install notes
 
