@@ -7,5 +7,8 @@
 
 ### Install notes
 
-1. `curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+1.  Download plug-in manager
+    `curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+1.  Install plugins
+    `nvim +PlugInstall`
