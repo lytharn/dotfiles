@@ -9,7 +9,7 @@ Dotfiles that are organized using GNU Stow and a set of rules.
 - No scripts
 - Each package has its own documentation
 
-## Requriments
+## Requirements
 
 - GNU Stow (2.3.0 or newer recommended)
 - Perl (requirement of GNU Stow)
