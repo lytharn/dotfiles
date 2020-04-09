@@ -1,8 +1,6 @@
 window:
   startup_mode: Maximized
 
-tabspaces: 4
-
 shell:
   program: /bin/bash
   args:
