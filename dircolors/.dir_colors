@@ -1,0 +1,195 @@
+# Termtypes that should be colorizable
+TERM alacritty
+TERM tmux*
+
+# SGR (Set Graphics Rendition) is used to specify color for filetypes.
+# SGR is specified with a set of attributes seperated by semicolon.
+#
+# Codes for attributes:
+# 00=none 01=bold 04=underscore
+# Text color codes
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+# Background color codes
+# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+
+# Basic file types
+NORMAL 00			# normal (nonfilename) text
+FILE 00				# regular file
+DIR 01;34			# directories
+LINK 00;36			# symbolic link
+ORPHAN 00;31			# orphaned symbolic link (on which points to a nonexistent file)
+MISSING 01;37;41 		# missing file (a nonexistent file which nevertheless ha a symbolic link pointing to it)
+FIFO 01;04;33			# FIFO (named pipe)
+SOCK 04;33			# socket
+DOOR 01;04;33			# door
+BLK 01;33			# block device special file
+CHR 00;33			# character device special file
+EXEC 01;04;32			# file with the executeable attribute set
+SETUID	01;04;37		# file with the set-user-ID attribute set
+SETGID	01;04;37		# file with the set-group-ID attribute set
+STICKY	04;37;44		# file with the sticky attribute set
+STICKY_OTHER_WRITABLE 01;37;44	# other-writable directory with the executable attribute set
+OTHER_WRITABLE	01;04;34	# other-writable directory without the executable attribute set
+
+# Specific file types
+
+ # Archives
+.7z  32
+.ace 32
+.alz 32
+.arc 32
+.arj 32
+.bz  32
+.bz2 32
+.cab 32
+.cpio 32
+.deb 32
+.dz  32
+.ear 32
+.gz  32
+.jar 32
+.lha 32
+.lrz 32
+.lz  32
+.lz4 32
+.lzh 32
+.lzma 32
+.lzo 32
+.rar 32
+.rpm 32
+.rz  32
+.sar 32
+.t7z 32
+.tar 32
+.taz 32
+.tbz 32
+.tbz2 32
+.tgz 32
+.tlz 32
+.txz 32
+.tz  32
+.tzo 32
+.war 32
+.xz  32
+.z   32
+.Z   32
+.zip 32
+.zoo 32
+
+ # Document
+.diff 32
+.doc 32
+.docx 32
+.dot 32
+.log 32
+.odg 32
+.odp 32
+.ods 32
+.odt 32
+.otg 32
+.otp 32
+.ots 32
+.ott 32
+.patch 32
+.pdf 32
+.ppt 32
+.pptx 32
+.ps 32
+.tex 32
+.txt 32
+.xls 32
+.xlsx 32
+
+
+ # Images
+.asf 01;35
+.avi 01;35
+.bmp 01;35
+.cgm 01;35
+.dl 01;35
+.emf 01;35
+.flc 01;35
+.fli 01;35
+.flv 01;35
+.gif 01;35
+.gl 01;35
+.jpeg 01;35
+.jpg 01;35
+.m2v 01;35
+.m4v 01;35
+.mkv 01;35
+.mng 01;35
+.mov 01;35
+.mp4 01;35
+.mp4v 01;35
+.mpeg 01;35
+.mpg 01;35
+.nuv 01;35
+.ogm 01;35
+.pbm 01;35
+.pcx 01;35
+.pgm 01;35
+.png 01;35
+.ppm 01;35
+.qt  01;35
+.rm  01;35
+.rmvb 01;35
+.svg 01;35
+.svgz 01;35
+.tga 01;35
+.tif 01;35
+.tiff 01;35
+.vob 01;35
+.webm 01;35
+.wmv 01;35
+.xbm 01;35
+.xcf 01;35
+.xpm 01;35
+.xwd 01;35
+.yuv 01;35
+
+ # Audio
+.aac 35
+.au 35
+.flac 35
+.m4a 35
+.mid 35
+.midi 35
+.mka 35
+.mp3 35
+.mpa 35
+.mpeg 35
+.mpg 35
+.ogg 35
+.opus 35
+.ra 35
+.wav 35
+
+ # Video
+.anx 35
+.asf 35
+.avi 35
+.axv 35
+.flc 35
+.fli 35
+.flv 35
+.gl 35
+.m2v 35
+.m4v 35
+.mkv 35
+.mov 35
+.MOV 35
+.mp4 35
+.mpeg 35
+.mpg 35
+.nuv 35
+.ogm 35
+.ogv 35
+.ogx 35
+.qt 35
+.rm 35
+.rmvb 35
+.swf 35
+.vob 35
+.webm 35
+.wmv 35
