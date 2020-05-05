@@ -8,17 +8,17 @@
     ci = commit
     cp = cherry-pick
     amend = commit --amend --no-edit
-    l = log --graph --pretty=jellyone
-    lt = log --graph --pretty=jellyone --first-parent
-    lr = log -15 --reverse --pretty=jellyone
-    ltr = log -15 --reverse --pretty=jellyone --first-parent
-    la = log --graph --pretty=jellyone --all
-    ll = log --graph --pretty=jellyfull
-    llt = log --graph --pretty=jellyfull --first-parent
-    lla = log --graph --pretty=jellyfull --all
-    rl = reflog --pretty=jellyref
-    rlr = reflog -15 --reverse --pretty=jellyref
-    rll = reflog --pretty=jellyreffull
+    l = log --graph --pretty=customone
+    lt = log --graph --pretty=customone --first-parent
+    lr = log -15 --reverse --pretty=customone
+    ltr = log -15 --reverse --pretty=customone --first-parent
+    la = log --graph --pretty=customone --all
+    ll = log --graph --pretty=customfull
+    llt = log --graph --pretty=customfull --first-parent
+    lla = log --graph --pretty=customfull --all
+    rl = reflog --pretty=customref
+    rlr = reflog -15 --reverse --pretty=customrefone
+    rll = reflog --pretty=customreffull
     clear-all = -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 -c gc.rerereresolved=0 -c gc.rerereunresolved=0 -c gc.pruneExpire=now gc
     clear-reflog = -c gc.reflogExpire=0 -c gc.reflogExpireUnreachable=0 gc
 [core]
@@ -33,42 +33,38 @@
 [merge]
     conflictstyle = diff3
 [color "branch"]
-    current = 107
-    local = 68
-    remote = 167
+    current = bold magenta
+    local = magenta
+    remote = magenta
 [color "diff"]
-    context = 145
-    meta = 179
-    frag = 75
-    func = 133
+    context = normal
+    meta = normal
+    func = blue
 [color "decorate"]
-    branch = 68
-    remoteBranch = 167
-    tag = 133
-    stash = 179
-    HEAD = 107
+    branch = magenta
+    remoteBranch = magenta
+    tag = magenta
+    stash = magenta
+    HEAD = magenta
 [color "grep"]
-    filename = 107
-    lineNumber = 179
-    matchSelected = 167
+    filename = blue
+    lineNumber = bold blue
+    matchSelected = red
 [color "interactive"]
-    prompt = 68
-    header = 179
-    help = 107
+    prompt = blue
+    header = normal
+    help = blue
 [color "status"]
-    header = 145
-    added = 107
-    changed = 68
-    untracked = 133
-    branch = 107
-    nobranch = 167
-    unmerged = 167
+    added = green
+    changed = yellow
+    untracked = blue
+    branch = magenta
+    nobranch = red
+    unmerged = red
 [pretty]
-    jellyone = format:%C(179)%h %C(reset)%s %C(68)%an %C(107)(%cr) %C(167)%d
-    jellyfull = format:%C(145)Commit: %C(179)%H %C(167)%d%n%C(145)Author: %C(75)'%an' <%ae> %C(107)(%ai)%n%C(145)Committer: %C(68)'%cn' <%ce> %C(107)(%ci)%C(145)%n%B
-    jellyref = format:%C(179)%h %C(107)%gd %C(reset)%s %C(107)(%cr) %C(167)%d
-    jellyreffull = format:%C(145)Selector: %C(107)%gD%n%C(145)Commit: %C(179)%H %C(167)%d%n%C(145)Author: %C(75)'%an' <%ae> %C(107)(%ai)%n%C(145)Committer: %C(68)'%cn' <%ce> %C(107)(%ci)%C(145)%n%B
-[format]
-    pretty = jellyone
+    customone = format:%C(yellow)%h %C(reset)%s %C(blue)%an %C(green)(%cr) %C(magenta)%d
+    customfull = format:Commit: %C(yellow)%H %C(magenta)%d%nAuthor: %C(bold blue)'%an' <%ae> %C(bold green)(%ai)%nCommitter: %C(blue)'%cn' <%ce> %C(green)(%ci)%n%B
+    customrefone = format:%C(yellow)%h %C(magenta)%gd %C(reset)%s %C(green)(%cr) %C(magenta)%d
+    customreffull = format:Selector: %C(magenta)%gD%nCommit: %C(yellow)%H %C(magenta)%d%nAuthor: %C(bold blue)'%an' <%ae> %C(bold green)(%ai)%nCommitter: %C(blue)'%cn' <%ce> %C(green)(%ci)%n%B
 [push]
     default = simple
