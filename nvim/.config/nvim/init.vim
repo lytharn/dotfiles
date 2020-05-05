@@ -16,7 +16,7 @@ else
 	" Declare the list of plugins.
 
 	" UI
-	Plug 'nanotech/jellybeans.vim'
+	Plug 'arcticicestudio/nord-vim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'edkolev/tmuxline.vim'
@@ -34,16 +34,9 @@ else
 	" List ends here. Plugins become visible to Vim after this call.
 	call plug#end()
 
-	" Jellybeans
-	" Use terminals default background color
-	let g:jellybeans_overrides = {
-				\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-				\}
-	if has('termguicolors') && &termguicolors
-		let g:jellybeans_overrides['background']['guibg'] = 'none'
-	endif
-	colorscheme jellybeans
+	" Nord
+	colorscheme nord
 
 	" vim-airline
-	let g:airline_theme = 'wombat'
+	let g:airline_theme = 'nord'
 endif
