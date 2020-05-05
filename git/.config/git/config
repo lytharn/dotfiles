@@ -30,6 +30,8 @@
     renames = copies
 [mergetool "nvimdiff"]
     cmd = nvim -d $LOCAL $REMOTE $MERGED
+[difftool]
+    prompt = false
 [difftool "nvimdiff"]
     cmd = nvim -R -d $LOCAL $REMOTE
 [log]
