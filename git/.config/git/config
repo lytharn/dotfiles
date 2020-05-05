@@ -28,6 +28,10 @@
 [diff]
     algorithm = histogram
     renames = copies
+[mergetool "nvimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED
+[difftool "nvimdiff"]
+    cmd = nvim -R -d $LOCAL $REMOTE
 [log]
     decorate = short
 [merge]
