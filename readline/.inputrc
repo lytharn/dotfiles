@@ -1,0 +1,5 @@
+control-p:history-search-backward
+control-n:history-search-forward
+control-l:kill-whole-line
+set completion-ignore-case on
+set completion-map-case on
