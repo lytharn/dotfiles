@@ -1,3 +1,7 @@
-alias ll="ls -l"
-alias la="ls -la"
-alias ltr="ls -ltr"
+###################################
+# Interactive mode configurations #
+###################################
+status is-interactive || exit
+
+# suppress fish greeting
+set -g fish_greeting
