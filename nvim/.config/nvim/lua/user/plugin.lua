@@ -8,4 +8,7 @@ vim.cmd [[
 
 return require"packer".startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
+
+  -- Color scheme
+  use "rmehri01/onenord.nvim"
 end)
