@@ -11,4 +11,10 @@ return require"packer".startup(function(use)
 
   -- Color scheme
   use "rmehri01/onenord.nvim"
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate"
+  }
 end)
