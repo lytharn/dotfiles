@@ -8,6 +8,7 @@ vim.cmd [[
 
 return require"packer".startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
+  use "numToStr/Comment.nvim" -- To simplify commenting
 
   -- Color scheme
   use "rmehri01/onenord.nvim"
