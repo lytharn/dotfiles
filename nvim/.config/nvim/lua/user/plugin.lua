@@ -13,6 +13,9 @@ return require("packer").startup(function(use)
 
   -- Color scheme
   use "rmehri01/onenord.nvim"
+  use "lunarvim/darkplus.nvim"
+  use "lunarvim/Onedarker.nvim"
+  use "folke/tokyonight.nvim"
 
   -- Treesitter
   use {
