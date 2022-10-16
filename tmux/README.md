@@ -11,4 +11,4 @@
 1.  Download plug-in manager
     `git clone https://github.com/tmux-plugins/tpm ~/.local/share/tmux/plugins/tpm`
 1.  Install plugins in tmux
-    `prefix + I`
+    `prefix + shift + I`
