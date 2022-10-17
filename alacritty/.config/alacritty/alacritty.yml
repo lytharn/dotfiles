@@ -33,6 +33,11 @@ colors:
     magenta: '0xB48EAD'
     cyan: '0x8FBCBB'
     white: '0xECEFF4'
+window:
+  padding:
+    x: 10
+    y: 10
+dynamic_padding: true
 font:
   normal:
     family: 'Hack Nerd Font'
