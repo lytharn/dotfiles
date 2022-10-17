@@ -43,6 +43,11 @@ for _, server in pairs(servers) do
   }
 
   if server == "sumneko_lua" then
+    local neodev_status_ok, neodev = pcall(require, "neodev")
+    if not neodev_status_ok then
+      return
+    end
+    neodev.setup({}) -- IMPORTANT: must be setup BEFORE lspconfig
     local sumneko_opts = require "user.lsp.settings.sumneko_lua"
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     lspconfig.sumneko_lua.setup(opts)
