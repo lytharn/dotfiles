@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- Snippet completions
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- Enable LSP
-  use "williamboman/nvim-lsp-installer"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
+  use "neovim/nvim-lspconfig"
 end)
