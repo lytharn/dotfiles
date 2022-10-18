@@ -29,7 +29,7 @@ local kind_icons = {
   Struct = "",
   Event = "",
   Operator = "",
-  TypeParameter = ""
+  TypeParameter = "",
 }
 
 local cmp = require("cmp")
@@ -82,7 +82,7 @@ cmp.setup({
   formatting = {
     format = function(entry, vim_item)
       -- Set icon with text to display depending on kind
-      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
       -- Set text to display depending on the source
       vim_item.menu = ({
         buffer = "[Buffer]",
@@ -91,7 +91,7 @@ cmp.setup({
         path = "[Path]",
       })[entry.source.name]
       return vim_item
-    end
+    end,
   },
 
   sources = cmp.config.sources({
@@ -100,23 +100,23 @@ cmp.setup({
     { name = "nvim_lsp_signature_help" },
   }, {
     { name = "buffer" },
-  })
+  }),
 })
 
 -- Sources for command mode `/` and '?'
 cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "buffer" }
-  }
+    { name = "buffer" },
+  },
 })
 
 -- Sources for command mode ':'
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = "path" }
+    { name = "path" },
   }, {
-    { name = "cmdline" }
-  })
+    { name = "cmdline" },
+  }),
 })
