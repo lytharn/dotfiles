@@ -23,8 +23,8 @@ return require("packer").startup(function(use)
     run = ":TSUpdate",
   }
 
-  -- cmp
-  use "hrsh7th/nvim-cmp" -- The completion plugin
+  -- Cmp
+  use { "hrsh7th/nvim-cmp", tag = "v0.0.1" }
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
