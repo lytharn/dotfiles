@@ -5,6 +5,7 @@ _G.load_plugin_dependent_config = function() -- Called by user.packer
   require "user.cmp"
   require "user.lsp"
   require "user.telescope"
+  require "user.nvim-tree"
   require "user.keymap"
 end
 

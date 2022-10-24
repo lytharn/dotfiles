@@ -16,7 +16,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 vim.keymap.set("n", "<A-h>", "gt", opts)
 vim.keymap.set("n", "<A-l>", "gT", opts)
 
--- Telescope --
+-- Telescope
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "ff", telescope.find_files, opts)
 vim.keymap.set("n", "fg", telescope.live_grep, opts)
@@ -24,6 +24,11 @@ vim.keymap.set("n", "fb", telescope.buffers, opts)
 vim.keymap.set("n", "fd", telescope.diagnostics, opts)
 vim.keymap.set("n", "fo", telescope.lsp_document_symbols, opts)
 vim.keymap.set("n", "ft", telescope.lsp_workspace_symbols, opts)
+
+-- nvim-tree
+local nvim_tree = require("nvim-tree.api")
+-- toggle nvim-tree with current file selected
+vim.keymap.set("n", "<leader>e", function() nvim_tree.tree.toggle(true) end, opts)
 
 -- Insert --
 -- Press jk fast to enter
