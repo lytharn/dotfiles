@@ -8,7 +8,6 @@ vim.cmd [[
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "numToStr/Comment.nvim" -- To simplify commenting
   use "nvim-lua/plenary.nvim" -- Lots of plugins depend on it
 
   -- Color scheme
@@ -31,7 +30,7 @@ return require("packer").startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lsp-signature-help"
   use { "L3MON4D3/LuaSnip", tag = "v1.*" }
-  use "saadparwaiz1/cmp_luasnip" -- Snippet completions
+  use "saadparwaiz1/cmp_luasnip"
 
   -- LSP
   use "williamboman/mason.nvim"
@@ -39,15 +38,18 @@ return require("packer").startup(function(use)
   use "neovim/nvim-lspconfig"
   use "folke/neodev.nvim"
 
+  -- Other
+  use "numToStr/Comment.nvim"
   use {
     "nvim-telescope/telescope.nvim", tag = "0.1.0",
-    requires = { { "nvim-lua/plenary.nvim" } },
+    requires = { "nvim-lua/plenary.nvim" },
   }
   use {
-    "nvim-tree/nvim-tree.lua",
-    requires = {
-      "nvim-tree/nvim-web-devicons", -- optional, for file icons
-    },
-    tag = "nightly", -- For more stability than master
+    "nvim-tree/nvim-tree.lua", tag = "nightly",
+    requires = { "nvim-tree/nvim-web-devicons" }
+  }
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
   }
 end)
