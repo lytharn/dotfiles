@@ -10,6 +10,7 @@ end
 
 local servers = {
   "sumneko_lua",
+  "rust_analyzer"
 }
 
 local settings = {
@@ -51,6 +52,17 @@ for _, server in pairs(servers) do
     local sumneko_opts = require "user.lsp.settings.sumneko_lua"
     opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     lspconfig.sumneko_lua.setup(opts)
+    goto continue
+  end
+
+  if server == "rust_analyzer" then
+    local rust_opts = require "user.lsp.settings.rust-tools"
+    local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+    if not rust_tools_status_ok then
+      return
+    end
+
+    rust_tools.setup(rust_opts)
     goto continue
   end
 

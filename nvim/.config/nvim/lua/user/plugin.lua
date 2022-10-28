@@ -46,10 +46,11 @@ return require("packer").startup(function(use)
   }
   use {
     "nvim-tree/nvim-tree.lua", tag = "nightly",
-    requires = { "nvim-tree/nvim-web-devicons" }
+    requires = { "nvim-tree/nvim-web-devicons" },
   }
   use {
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
   }
+  use "simrat39/rust-tools.nvim"
 end)
