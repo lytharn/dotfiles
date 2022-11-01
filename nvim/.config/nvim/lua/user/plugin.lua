@@ -37,6 +37,14 @@ return require("packer").startup(function(use)
   use "williamboman/mason-lspconfig.nvim"
   use "neovim/nvim-lspconfig"
   use "folke/neodev.nvim"
+  use "simrat39/rust-tools.nvim"
+
+  -- lualine
+  use {
+    "nvim-lualine/lualine.nvim",
+    requires = { "kyazdani42/nvim-web-devicons" },
+  }
+  use "arkav/lualine-lsp-progress"
 
   -- Other
   use "numToStr/Comment.nvim"
@@ -48,9 +56,4 @@ return require("packer").startup(function(use)
     "nvim-tree/nvim-tree.lua", tag = "nightly",
     requires = { "nvim-tree/nvim-web-devicons" },
   }
-  use {
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-  }
-  use "simrat39/rust-tools.nvim"
 end)
