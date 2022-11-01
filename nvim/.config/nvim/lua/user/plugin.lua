@@ -28,7 +28,6 @@ return require("packer").startup(function(use)
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lsp-signature-help"
   use { "L3MON4D3/LuaSnip", tag = "v1.*" }
   use "saadparwaiz1/cmp_luasnip"
 
@@ -38,6 +37,7 @@ return require("packer").startup(function(use)
   use "neovim/nvim-lspconfig"
   use "folke/neodev.nvim"
   use "simrat39/rust-tools.nvim"
+  use "ray-x/lsp_signature.nvim"
 
   -- lualine
   use {
