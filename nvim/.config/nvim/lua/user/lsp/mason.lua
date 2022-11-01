@@ -8,10 +8,15 @@ if not mason_lsp_status_ok then
   return
 end
 
-local servers = {
+local servers_to_install = {
   "sumneko_lua",
-  "rust_analyzer"
 }
+
+local servers = {
+  "rust_analyzer",
+}
+
+vim.list_extend(servers, servers_to_install)
 
 local settings = {
   ui = {
@@ -26,8 +31,8 @@ local settings = {
 
 mason.setup(settings)
 mason_lspconfig.setup {
-  ensure_installed = servers,
-  automatic_installation = true,
+  ensure_installed = servers_to_install,
+  automatic_installation = false,
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
