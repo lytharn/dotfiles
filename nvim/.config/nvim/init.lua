@@ -8,6 +8,7 @@ _G.load_plugin_dependent_config = function() -- Called by user.packer
   require "user.nvim-tree"
   require "user.lualine"
   require "user.gitsigns"
+  require "user.autopairs"
   require "user.keymap"
 end
 

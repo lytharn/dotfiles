@@ -57,4 +57,5 @@ return require("packer").startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons" },
   }
   use { "lewis6991/gitsigns.nvim", tag = "v0.5" }
+  use "windwp/nvim-autopairs"
 end)
