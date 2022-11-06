@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 comment.setup({
+  toggler = {
+    line = "<C-_>", -- Ctrl + /
+  },
   mappings = {
     ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
     basic = true,
