@@ -60,12 +60,23 @@ local function set_lsp_keymaps(buffer)
   vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, opts)
 end
 
-M.on_attach = function(_ --[[ client ]] , buffer)
-  -- Uncomment to change capabilities of language server
-  -- if client.name == "SERVER_NAME" then
-  --   client.resolved_capabilities.document_formatting = false
-  -- end
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local function set_format_on_save(client, buffer)
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = buffer,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = buffer })
+      end,
+    })
+  end
+end
+
+M.on_attach = function(client, buffer)
   set_lsp_keymaps(buffer)
+  set_format_on_save(client, buffer)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
