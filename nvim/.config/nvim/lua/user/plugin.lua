@@ -45,6 +45,7 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons" },
   }
   use "arkav/lualine-lsp-progress"
+  use "SmiteshP/nvim-navic"
 
   -- Other
   use "numToStr/Comment.nvim"

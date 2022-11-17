@@ -44,8 +44,8 @@ M.setup = function()
   })
 end
 
-local function set_lsp_keymaps(buffer)
-  local opts = { silent = true, buffer = buffer }
+local function set_lsp_keymaps(bufnr)
+  local opts = { silent = true, buffer = bufnr }
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
@@ -60,22 +60,31 @@ local function set_lsp_keymaps(buffer)
 end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local function set_format_on_save(client, buffer)
+local function set_format_on_save(client, bufnr)
   if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
-      buffer = buffer,
+      buffer = bufnr,
       callback = function()
-        vim.lsp.buf.format({ bufnr = buffer })
+        vim.lsp.buf.format({ bufnr = bufnr })
       end,
     })
   end
 end
 
-M.on_attach = function(client, buffer)
-  set_lsp_keymaps(buffer)
-  set_format_on_save(client, buffer)
+local function attach_navic(client, bufnr)
+  local status_ok, navic = pcall(require, "nvim-navic")
+  if not status_ok then
+    return
+  end
+  navic.attach(client, bufnr)
+end
+
+M.on_attach = function(client, bufnr)
+  set_lsp_keymaps(bufnr)
+  set_format_on_save(client, bufnr)
+  attach_navic(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

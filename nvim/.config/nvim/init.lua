@@ -6,6 +6,7 @@ _G.load_plugin_dependent_config = function() -- Called by user.packer
   require "user.lsp"
   require "user.telescope"
   require "user.nvim-tree"
+  require "user.navic"
   require "user.lualine"
   require "user.gitsigns"
   require "user.autopairs"
