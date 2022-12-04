@@ -18,19 +18,38 @@ M.set_global_keymaps = function()
   vim.keymap.set("n", "<A-l>", "gT")
 
   -- Telescope
-  local telescope = require("telescope.builtin")
-  vim.keymap.set("n", "<leader>ff", telescope.find_files)
-  vim.keymap.set("n", "<leader>fg", telescope.live_grep)
-  vim.keymap.set("n", "<leader>fb", telescope.buffers)
-  vim.keymap.set("n", "<leader>fd", telescope.diagnostics)
-  vim.keymap.set("n", "<leader>fo", telescope.lsp_document_symbols)
-  vim.keymap.set("n", "<leader>ft", telescope.lsp_workspace_symbols)
-  vim.keymap.set("n", "<leader>fr", telescope.lsp_references)
+  local telescope_ok, telescope = pcall(require, "telescope.builtin")
+  if telescope_ok then
+    vim.keymap.set("n", "<leader>ff", telescope.find_files)
+    vim.keymap.set("n", "<leader>fg", telescope.live_grep)
+    vim.keymap.set("n", "<leader>fb", telescope.buffers)
+    vim.keymap.set("n", "<leader>fd", telescope.diagnostics)
+    vim.keymap.set("n", "<leader>fo", telescope.lsp_document_symbols)
+    vim.keymap.set("n", "<leader>ft", telescope.lsp_workspace_symbols)
+    vim.keymap.set("n", "<leader>fr", telescope.lsp_references)
+  end
+
+  -- Harpoon
+  local harpoon_ok, _ = pcall(require, "harpoon")
+  if harpoon_ok then
+    local mark = require("harpoon.mark")
+    local ui = require("harpoon.ui")
+    vim.keymap.set("n", "<leader>ja", mark.add_file)
+    vim.keymap.set("n", "<leader>jq", function() ui.nav_file(1) end)
+    vim.keymap.set("n", "<leader>jw", function() ui.nav_file(2) end)
+    vim.keymap.set("n", "<leader>je", function() ui.nav_file(3) end)
+    vim.keymap.set("n", "<leader>jr", function() ui.nav_file(4) end)
+    vim.keymap.set("n", "<leader>jl", ui.toggle_quick_menu)
+    vim.keymap.set("n", "<C-n>", ui.nav_next)
+    vim.keymap.set("n", "<C-p>", ui.nav_prev)
+  end
 
   -- nvim-tree
-  local nvim_tree = require("nvim-tree.api")
-  -- toggle nvim-tree with current file selected
-  vim.keymap.set("n", "<leader>e", function() nvim_tree.tree.toggle(true) end)
+  local tree_ok, tree = pcall(require, "nvim-tree.api")
+  if tree_ok then
+    -- toggle nvim-tree with current file selected
+    vim.keymap.set("n", "<leader>e", function() tree.tree.toggle(true) end)
+  end
 
   -- Insert --
   -- Press jk fast to enter
