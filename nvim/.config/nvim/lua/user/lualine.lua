@@ -20,7 +20,8 @@ lualine.setup {
   winbar = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { { "filename", path = 1 },
+    lualine_c = {
+      { "filename", path = 1 },
       { navic.get_location, cond = navic.is_available },
     },
     lualine_x = {},
