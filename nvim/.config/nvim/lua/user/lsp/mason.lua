@@ -9,7 +9,7 @@ if not mason_lsp_status_ok then
 end
 
 local servers_to_install = {
-  "sumneko_lua",
+  "lua_ls",
 }
 
 local servers = {
@@ -48,15 +48,15 @@ for _, server in pairs(servers) do
     capabilities = require("user.lsp.handlers").capabilities,
   }
 
-  if server == "sumneko_lua" then
+  if server == "lua_ls" then
     local neodev_status_ok, neodev = pcall(require, "neodev")
     if not neodev_status_ok then
       return
     end
     neodev.setup({}) -- IMPORTANT: must be setup BEFORE lspconfig
-    local sumneko_opts = require "user.lsp.settings.sumneko_lua"
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-    lspconfig.sumneko_lua.setup(opts)
+    local lua_opts = require "user.lsp.settings.lua_ls"
+    opts = vim.tbl_deep_extend("force", lua_opts, opts)
+    lspconfig.lua_ls.setup(opts)
     goto continue
   end
 
