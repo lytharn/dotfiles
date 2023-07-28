@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = { "bash", "json", "lua", "rust" }, -- A list of parser names or "all"
+  ensure_installed = { "bash", "json", "lua", "rust", "nix" }, -- A list of parser names or "all"
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- list of parsers to ignore installing
   highlight = {
