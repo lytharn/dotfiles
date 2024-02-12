@@ -8,7 +8,7 @@ vim.cmd [[
 
 return require("packer").startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/plenary.nvim" -- Lots of plugins depend on it
+  use "nvim-lua/plenary.nvim"  -- Lots of plugins depend on it
 
   -- Color scheme
   use "lunarvim/darkplus.nvim"
@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
   -- Other
   use "numToStr/Comment.nvim"
   use {
-    "nvim-telescope/telescope.nvim", tag = "0.1.0",
+    "nvim-telescope/telescope.nvim", tag = "0.1.5",
     requires = { "nvim-lua/plenary.nvim" },
   }
   use {
