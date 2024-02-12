@@ -9,11 +9,11 @@ if not mason_lsp_status_ok then
 end
 
 local servers_to_install = {
-  "lua_ls",
 }
 
 local servers = {
   "rust_analyzer",
+  "lua_ls",
 }
 
 vim.list_extend(servers, servers_to_install)
