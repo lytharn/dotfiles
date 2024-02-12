@@ -21,8 +21,8 @@ lualine.setup {
     lualine_a = {},
     lualine_b = {},
     lualine_c = {
-      { "filename", path = 1 },
-      { navic.get_location, cond = navic.is_available },
+      { "filename",                                 path = 1 },
+      { function() return navic.get_location() end, cond = function() return navic.is_available() end },
     },
     lualine_x = {},
     lualine_y = {},
