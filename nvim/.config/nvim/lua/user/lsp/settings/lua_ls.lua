@@ -8,6 +8,9 @@ return {
           trailing_table_separator = "smart",
         },
       },
+      workspace = {
+        checkThirdParty = false,
+      },
     },
   },
 }
