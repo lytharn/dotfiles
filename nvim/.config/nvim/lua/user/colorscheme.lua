@@ -1,4 +1,3 @@
--- local colorscheme = "onenord"
 -- local colorscheme = "darkplus"
 local colorscheme = "onedarker"
 -- local colorscheme = "tokyonight"

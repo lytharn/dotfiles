@@ -11,7 +11,6 @@ return require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim" -- Lots of plugins depend on it
 
   -- Color scheme
-  use "rmehri01/onenord.nvim"
   use "lunarvim/darkplus.nvim"
   use "lunarvim/Onedarker.nvim"
   use "folke/tokyonight.nvim"
