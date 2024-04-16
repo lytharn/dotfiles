@@ -1,12 +1,11 @@
 local M = {}
 
 M.set_global_keymaps = function()
-  --Remap space as leader key
-  vim.keymap.set("", "<Space>", "<Nop>")
-  vim.g.mapleader = " "
-  vim.g.maplocalleader = " "
-
   -- Normal --
+
+  -- Clear highlight search by escaping in normal mode
+  vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
   -- Better window navigation
   vim.keymap.set("n", "<C-h>", "<C-w>h")
   vim.keymap.set("n", "<C-j>", "<C-w>j")
