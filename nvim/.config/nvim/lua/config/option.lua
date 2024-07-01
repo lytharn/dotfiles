@@ -32,7 +32,7 @@ vim.opt.undofile = true
 vim.opt.updatetime = 250
 
 -- Time in ms to wait for a key code sequence to complete
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 600
 
 -- Show whitespace characters: tab, trailing space and non-breakable space
 vim.opt.list = true
