@@ -35,6 +35,7 @@ return {
         },
       },
     })
-    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvim tree" })
+    vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<cr>",
+      { desc = "Toggle nvim tree and select current file." })
   end,
 }
