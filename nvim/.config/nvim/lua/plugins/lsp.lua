@@ -22,8 +22,9 @@ return { -- LSP Configuration & Plugins
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("lytharn-lsp-attach", { clear = true }),
       callback = function(event)
-        local map = function(keys, func, desc)
-          vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+        local map = function(keys, func, desc, mode)
+          mode = mode or "n"
+          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
         end
 
         map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinition")
@@ -35,6 +36,7 @@ return { -- LSP Configuration & Plugins
         map("<leader>fS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[F]ind [S]ymbols in workspace")
         map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", "v")
         map("K", vim.lsp.buf.hover, "Hover Documentation")
 
         -- Highlight references of the word under the cursor.
