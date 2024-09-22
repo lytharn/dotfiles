@@ -16,11 +16,23 @@ return {
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = {
     highlight = { enable = true },
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
     indent = { enable = true },
     ensure_installed = {
       "bash",
+      "c",
+      "cpp",
       "diff",
-      "json",
+      "erlang",
+      "git_config",
+      "git_rebase",
+      "gitattributes",
+      "gitcommit",
+      "gitignore",
       "json",
       "lua",
       "luadoc",
@@ -28,6 +40,7 @@ return {
       "markdown",
       "markdown_inline",
       "nix",
+      "proto",
       "python",
       "regex",
       "rust",
@@ -38,4 +51,8 @@ return {
       "yaml",
     },
   },
+  -- Need to manually call setup because it resides in configs
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end,
 }
