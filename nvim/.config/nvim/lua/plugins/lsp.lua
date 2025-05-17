@@ -11,9 +11,6 @@ return { -- LSP Configuration & Plugins
 
     -- `neodev` configures Lua LSP Neovim config, runtime and plugins.
     { "folke/neodev.nvim", opts = {} },
-
-    -- Used specifically for rust
-    "simrat39/rust-tools.nvim",
   },
   config = function()
     -- This function gets run when an LSP attaches to a particular buffer.
@@ -115,28 +112,5 @@ return { -- LSP Configuration & Plugins
       opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, opts.capabilities or {})
       require("lspconfig")[server].setup(opts)
     end
-
-    -- rust-tools will call lspconfig setup
-    require("rust-tools").setup {
-      tools = {
-        inlay_hints = {
-          parameter_hints_prefix = "󱦱 ",
-          other_hints_prefix = " ",
-        },
-      },
-      server = {
-        capabilities = capabilities,
-        settings = {
-          ["rust-analyzer"] = {
-            lens = {
-              enable = true,
-            },
-            checkOnSave = {
-              command = "clippy",
-            },
-          },
-        },
-      },
-    }
   end,
 }
