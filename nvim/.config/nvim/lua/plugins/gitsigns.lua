@@ -9,6 +9,7 @@ return {
       changedelete = { text = "▎" },
       untracked    = { text = "┆" },
     },
+    current_line_blame = true,
     on_attach = function(bufnr)
       local gitsigns = require("gitsigns")
 
@@ -36,24 +37,28 @@ return {
       end, { desc = "Move to previous hunk" })
 
       -- Actions
-      map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "[H]unk [S]tage" })
-      map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "[H]unk [R]eset" })
+      map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage hunk" })
+      map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset hunk" })
       map("v", "<leader>hs", function() gitsigns.stage_hunk { vim.fn.line("."), vim.fn.line("v") } end,
         { desc = "Stage hunk" })
       map("v", "<leader>hr", function() gitsigns.reset_hunk { vim.fn.line("."), vim.fn.line("v") } end,
-        { desc = "" })
-      map("n", "<leader>ds", gitsigns.stage_buffer, { desc = "[D]ocument [S]tage" })
-      map("n", "<leader>hu", gitsigns.undo_stage_hunk, { desc = "[H]unk [U]ndo stage" })
-      map("n", "<leader>dr", gitsigns.reset_buffer, { desc = "[D]ocument [R]eset" })
-      map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "[H]unk [P]review" })
-      map("n", "<leader>lb", function() gitsigns.blame_line { full = true } end, { desc = "[L]ine [B]lame" })
-      map("n", "<leader>ltb", gitsigns.toggle_current_line_blame, { desc = "[L]ine [T]oggle [B]lame" })
-      map("n", "<leader>dd", gitsigns.diffthis, { desc = "[D]ocument [D]iff" })
-      map("n", "<leader>fD", function() gitsigns.diffthis("~") end, { desc = "[D]ocument [D]iff parent" })
-      map("n", "<leader>dtd", gitsigns.toggle_deleted, { desc = "[D]ocument [T]oggle [D]eleted" })
+        { desc = "Reset hunk" })
+      map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "Stage buffer" })
+      map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "Reset buffer" })
+      map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview hunk" })
+      map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "Preview hunk inline" })
+      map("n", "<leader>hh", function() gitsigns.change_base("HEAD", true) end,
+        { desc = "Change hunk preview base to HEAD" })
+      map("n", "<leader>hP", function() gitsigns.change_base("~", true) end,
+        { desc = "Change hunk preview base to parent" })
+      map("n", "<leader>hb", function() gitsigns.blame_line { full = true } end, { desc = "Blame on current line" })
+      map("n", "<leader>htb", gitsigns.toggle_current_line_blame, { desc = "Toggle line blame virtual text" })
+      map("n", "<leader>hsd", gitsigns.diffthis, { desc = "Show buffer diff" })
+      map("n", "<leader>hsD", function() gitsigns.diffthis("~") end, { desc = "Show buffer diff with parent" })
+      map("n", "<leader>hsb", gitsigns.blame, { desc = "Show blame" })
 
       -- Text object
-      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select hunk" })
+      map({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "Select hunk" })
     end,
   },
 }
