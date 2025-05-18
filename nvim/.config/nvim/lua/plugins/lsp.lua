@@ -31,7 +31,7 @@ return { -- LSP Configuration & Plugins
         map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
         map("<leader>fs", require("telescope.builtin").lsp_document_symbols, "[F]ind [S]ymbols")
         map("<leader>fS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[F]ind [S]ymbols in workspace")
-        map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+        map("<leader>r", vim.lsp.buf.rename, "[R]ename")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", "v")
         map("K", vim.lsp.buf.hover, "Hover Documentation")
