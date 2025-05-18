@@ -4,12 +4,12 @@ return {
   cmd = { "ConformInfo" },
   keys = {
     {
-      "<leader>df",
+      "<leader>cf",
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
       mode = "",
-      desc = "[D]ocument [F]ormat",
+      desc = "[C]ode [F]ormat",
     },
   },
   -- Everything in opts will be passed to setup()
