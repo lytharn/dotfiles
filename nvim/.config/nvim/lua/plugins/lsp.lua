@@ -27,7 +27,8 @@ return { -- LSP Configuration & Plugins
         map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinition")
         map("gi", require("telescope.builtin").lsp_implementations, "[G]o to [I]mplementation")
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-        map("<leader>gr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
+        map("<leader>gr", function() require("telescope.builtin").lsp_references { show_line = false } end,
+          "[G]o to [R]eferences")
         map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
         map("<leader>fs", require("telescope.builtin").lsp_document_symbols, "[F]ind [S]ymbols")
         map("<leader>fS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[F]ind [S]ymbols in workspace")
