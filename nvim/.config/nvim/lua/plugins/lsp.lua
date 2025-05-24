@@ -100,6 +100,8 @@ return { -- LSP Configuration & Plugins
     require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
     require("mason-lspconfig").setup {
+      ensure_installed = {}, -- explicitly set to an empty table, populates installs via mason-tool-installer
+      automatic_enable = false,
       handlers = {
         function(server_name)
           local server = servers_to_install[server_name] or {}
