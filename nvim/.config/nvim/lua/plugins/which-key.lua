@@ -11,6 +11,7 @@ return { -- Useful plugin to show you pending keybinds.
         { "<leader>g", group = "[G]oto" },
         { "<leader>h", group = "[H]unk" },
         { "<leader>j", group = "[J]ump" },
+        { "<leader>q", group = "[Q]uickfix" },
       },
     },
   },

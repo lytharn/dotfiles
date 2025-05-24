@@ -9,6 +9,13 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right of current
 
 vim.keymap.set("n", "<leader>sd", vim.diagnostic.open_float, { desc = "Open diagnostic" })
 
+-- Quickfix keymaps
+vim.keymap.set("n", "<leader>qd", vim.diagnostic.setqflist, { desc = "Open diagnostic quickfix list" })
+vim.keymap.set("n", "<leader>qq", "<cmd>cclose<CR>", { desc = "Close quickfix list" })
+vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR><C-w>p", { desc = "Open quickfix list" })
+vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>", { desc = "Next quickfix item" })     -- Default ]q
+vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>", { desc = "Previous quickfix item" }) -- Default [q
+
 -- Move line up and down
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
