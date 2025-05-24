@@ -7,6 +7,8 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right of current" })
 
+vim.keymap.set("n", "<leader>sd", vim.diagnostic.open_float, { desc = "Open diagnostic" })
+
 -- Move line up and down
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })

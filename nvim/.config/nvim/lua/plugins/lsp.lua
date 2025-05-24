@@ -53,6 +53,28 @@ return { -- LSP Configuration & Plugins
       end,
     })
 
+    -- See :help vim.diagnostic.Opts
+    vim.diagnostic.config {
+      severity_sort = true,
+      float = {             -- Open with vim.diagnostic.open_float({opts})
+        border = "rounded",
+        source = "if_many", -- Only show the source if there are multiple sources of diagnostics
+      },
+      underline = { severity = vim.diagnostic.severity.ERROR },
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "󰅚 ",
+          [vim.diagnostic.severity.WARN] = "󰀪 ",
+          [vim.diagnostic.severity.INFO] = "󰋽 ",
+          [vim.diagnostic.severity.HINT] = "󰌶 ",
+        },
+      },
+      virtual_text = {
+        source = "if_many", -- Only show the source if there are multiple sources of diagnostics
+        spacing = 2,
+      },
+    }
+
     -- By default, Neovim doesn't support everything that is in the LSP specification.
     -- When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
     -- So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
