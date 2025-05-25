@@ -56,6 +56,8 @@ return {
       map("n", "<leader>hsd", gitsigns.diffthis, { desc = "Show buffer diff" })
       map("n", "<leader>hsD", function() gitsigns.diffthis("~") end, { desc = "Show buffer diff with parent" })
       map("n", "<leader>hsb", gitsigns.blame, { desc = "Show blame" })
+      map("n", "<leader>hQ", function() gitsigns.setqflist("all") end, { desc = "Open all changes quickfix list" })
+      map("n", "<leader>hq", gitsigns.setqflist, { desc = "Open buffer changes quickfix list" })
 
       -- Text object
       map({ "o", "x" }, "ih", gitsigns.select_hunk, { desc = "Select hunk" })
