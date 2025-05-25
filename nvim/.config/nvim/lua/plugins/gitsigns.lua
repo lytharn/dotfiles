@@ -52,7 +52,7 @@ return {
       map("n", "<leader>hP", function() gitsigns.change_base("~", true) end,
         { desc = "Change hunk preview base to parent" })
       map("n", "<leader>hb", function() gitsigns.blame_line { full = true } end, { desc = "Blame on current line" })
-      map("n", "<leader>htb", gitsigns.toggle_current_line_blame, { desc = "Toggle line blame virtual text" })
+      map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "Toggle line blame virtual text" })
       map("n", "<leader>hsd", gitsigns.diffthis, { desc = "Show buffer diff" })
       map("n", "<leader>hsD", function() gitsigns.diffthis("~") end, { desc = "Show buffer diff with parent" })
       map("n", "<leader>hsb", gitsigns.blame, { desc = "Show blame" })
