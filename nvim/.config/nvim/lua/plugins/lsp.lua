@@ -137,6 +137,15 @@ return {
             },
           },
         },
+        nil_ls = {
+          settings = {
+            ["nil"] = {
+              formatting = {
+                command = { "nixfmt" },
+              },
+            },
+          },
+        },
       }
 
       local servers_to_install = {}
