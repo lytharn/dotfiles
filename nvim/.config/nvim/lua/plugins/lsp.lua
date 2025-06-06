@@ -39,6 +39,7 @@ return {
 
           map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinition")
           map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          map("<leader>qi", vim.lsp.buf.incoming_calls, "Open incoming calls quickfix list")
           map("<leader>gr", function() require("telescope.builtin").lsp_references { show_line = false } end,
             "[G]o to [R]eferences")
           map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
