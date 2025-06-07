@@ -9,6 +9,7 @@ return {
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "snacks.nvim",        words = { "Snacks" } },
       },
     },
   },
@@ -37,14 +38,9 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
           end
 
-          map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinition")
-          map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+          map("<leader>cr", vim.lsp.buf.rename, "[R]ename")
+          map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
           map("<leader>qi", vim.lsp.buf.incoming_calls, "Open incoming calls quickfix list")
-          map("<leader>gr", function() require("telescope.builtin").lsp_references { show_line = false } end,
-            "[G]o to [R]eferences")
-          map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-          map("<leader>fs", require("telescope.builtin").lsp_document_symbols, "[F]ind [S]ymbols")
-          map("<leader>fS", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[F]ind [S]ymbols in workspace")
           map("K", vim.lsp.buf.hover, "Hover Documentation")
 
           -- Highlight references of the word under the cursor.

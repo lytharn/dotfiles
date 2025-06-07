@@ -7,7 +7,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window right of current" })
 
-vim.keymap.set("n", "<leader>sd", vim.diagnostic.open_float, { desc = "Open diagnostic" })
+vim.keymap.set("n", "<leader>od", vim.diagnostic.open_float, { desc = "Open diagnostic" })
 
 -- Quickfix keymaps
 vim.keymap.set("n", "<leader>qd", vim.diagnostic.setqflist, { desc = "Open diagnostic quickfix list" })
