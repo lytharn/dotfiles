@@ -17,8 +17,11 @@ return {
         },
       },
     },
+    words = {},
   },
   keys = {
+    -- Picker
+    --
     -- find files
     { "<leader><space>", function() Snacks.picker.smart() end,   desc = "Smart Find Files" },
     { "<leader>fb",      function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -76,5 +79,9 @@ return {
     { "gy",         function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" },
     { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
     { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+
+    -- Words
+    { "]]",         function() Snacks.words.jump(vim.v.count1) end,       desc = "Next Reference" },
+    { "[[",         function() Snacks.words.jump(-vim.v.count1) end,      desc = "Prev Reference" },
   },
 }
