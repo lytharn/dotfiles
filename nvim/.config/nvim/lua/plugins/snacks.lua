@@ -17,8 +17,18 @@ return {
         },
       },
     },
+    rename = {},
     words = {},
   },
+  init = function()
+    -- Lets LSP clients know that a file has been renamed
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesActionRename",
+      callback = function(event)
+        Snacks.rename.on_rename_file(event.data.from, event.data.to)
+      end,
+    })
+  end,
   keys = {
     -- Picker
     --
