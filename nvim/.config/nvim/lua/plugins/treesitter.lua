@@ -50,6 +50,15 @@ return {
       "xml",
       "yaml",
     },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<A-o>",
+        node_incremental = "<A-o>",
+        scope_incremental = false,
+        node_decremental = "<A-i>",
+      },
+    },
   },
   -- Need to manually call setup because it resides in configs
   config = function(_, opts)
