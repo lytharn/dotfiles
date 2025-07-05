@@ -17,12 +17,6 @@ vim.keymap.set("n", "<leader>qo", "<cmd>copen<CR><C-w>p", { desc = "Open quickfi
 vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>", { desc = "Next quickfix item" })     -- Default ]q
 vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>", { desc = "Previous quickfix item" }) -- Default [q
 
--- Move line up and down
-vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("x", "<A-j>", ":move '>+1<CR>gv-gv", { desc = "Move line down" })
-vim.keymap.set("x", "<A-k>", ":move '<-2<CR>gv-gv", { desc = "Move line up" })
-
 -- Do not copy what is replaced with paste
 vim.keymap.set("v", "p", '"_dP')
 
