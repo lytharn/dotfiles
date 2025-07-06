@@ -56,7 +56,6 @@ return {
       vim.diagnostic.config {
         severity_sort = true,
         float = {             -- Open with vim.diagnostic.open_float({opts})
-          border = "rounded",
           source = "if_many", -- Only show the source if there are multiple sources of diagnostics
         },
         underline = { severity = vim.diagnostic.severity.ERROR },
