@@ -11,8 +11,9 @@ return {
             -- <C-g> to switch between live and fzf search
             -- <Tab> to select files
             ["<Esc>"] = { "close", mode = { "i", "n" } }, -- Close picker with Esc
-            ["<C-n>"] = { "history_forward", mode = { "i", "n" } },
-            ["<C-p>"] = { "history_back", mode = { "i", "n" } },
+            ["<C-j>"] = { "history_forward", mode = { "i", "n" } },
+            ["<C-k>"] = { "history_back", mode = { "i", "n" } },
+            ["<C-y>"] = { "confirm", mode = { "i", "n" } },
           },
         },
       },
