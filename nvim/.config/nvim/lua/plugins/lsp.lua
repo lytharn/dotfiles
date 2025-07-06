@@ -67,6 +67,9 @@ return {
             [vim.diagnostic.severity.HINT] = "󰌶 ",
           },
         },
+        virtual_lines = {
+          current_line = true,
+        },
         virtual_text = {
           source = "if_many", -- Only show the source if there are multiple sources of diagnostics
           spacing = 2,
