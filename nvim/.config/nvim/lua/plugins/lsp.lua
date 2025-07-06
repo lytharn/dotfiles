@@ -41,7 +41,6 @@ return {
           map("<leader>cr", vim.lsp.buf.rename, "[R]ename")
           map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
           map("<leader>qi", vim.lsp.buf.incoming_calls, "Open incoming calls quickfix list")
-          map("K", vim.lsp.buf.hover, "Hover Documentation")
 
           -- Toggle inlay hints
           local client = vim.lsp.get_client_by_id(event.data.client_id)
