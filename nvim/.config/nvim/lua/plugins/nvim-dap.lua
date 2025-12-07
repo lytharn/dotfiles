@@ -5,7 +5,7 @@ return {
       local dap = require("dap")
       dap.adapters.lldb = {
         type = "executable",
-        command = "/run/current-system/sw/bin/lldb-dap",
+        command = vim.fn.exepath("lldb-dap"),
         name = "lldb",
       }
     end,
