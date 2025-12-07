@@ -16,7 +16,7 @@ return {
   { -- LSP Configuration
     "neovim/nvim-lspconfig",
     dependencies = {
-      "mason-org/mason.nvim",
+      { "mason-org/mason.nvim", opts = {} },
       "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "saghen/blink.cmp",
@@ -118,33 +118,20 @@ return {
         },
       }
 
-      local servers_to_install = {}
 
       -- To check the current status of installed tools and/or manually install
       -- other tools, you can run
       --   :Mason
       -- You can press `g?` for help in this menu.
-      require("mason").setup()
-
+      local servers_to_install = {}
       local ensure_installed = vim.tbl_keys(servers_to_install or {})
       vim.list_extend(ensure_installed, {})
       require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
-      require("mason-lspconfig").setup {
-        ensure_installed = {}, -- explicitly set to an empty table, populates installs via mason-tool-installer
-        automatic_enable = false,
-        handlers = {
-          function(server_name)
-            local server = servers_to_install[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-            require("lspconfig")[server_name].setup(server)
-          end,
-        },
-      }
-
       for server, opts in pairs(servers) do
         opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, opts.capabilities or {})
-        require("lspconfig")[server].setup(opts)
+        vim.lsp.config(server, opts)
+        vim.lsp.enable(server)
       end
     end,
   } }
