@@ -107,6 +107,7 @@ return {
             },
           },
         },
+        marksman = {},
         nil_ls = {
           settings = {
             ["nil"] = {
