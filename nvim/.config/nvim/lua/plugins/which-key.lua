@@ -11,6 +11,7 @@ return { -- Useful plugin to show you pending keybinds.
         { "<leader>g", group = "[G]it" },
         { "<leader>h", group = "[H]unk" },
         { "<leader>j", group = "[J]ump" },
+        { "<leader>l", group = "[L]ivePreview" },
         { "<leader>q", group = "[O]open" },
         { "<leader>q", group = "[Q]uickfix" },
         { "<leader>s", group = "[S]earch" },
