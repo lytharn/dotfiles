@@ -108,15 +108,7 @@ return {
           },
         },
         marksman = {},
-        nil_ls = {
-          settings = {
-            ["nil"] = {
-              formatting = {
-                command = { "nixfmt" },
-              },
-            },
-          },
-        },
+        nixd = {},
       }
 
 
