@@ -109,6 +109,21 @@ return {
         },
         marksman = {},
         nixd = {},
+        pyright = {
+          settings = {
+            pyright = {
+              -- Let Ruff handle import sorting
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Let Ruff handle linting diagnostics
+                ignore = { "*" },
+              },
+            },
+          },
+        },
+        ruff = {},
       }
 
 

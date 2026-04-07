@@ -42,4 +42,11 @@ return {
       end
     end,
   },
+  {
+    "mfussenegger/nvim-dap-python",
+    config = function()
+      local dapp = require("dap-python")
+      dapp.setup("python3")
+    end,
+  },
 }
