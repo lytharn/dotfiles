@@ -2,14 +2,12 @@ return {
   "nvim-treesitter/nvim-treesitter",
   version = "9",
   build = ":TSUpdate",
-  event = { "VeryLazy" },
+  lazy = false,
   dependencies = {
-    {
+      {
       "nvim-treesitter/nvim-treesitter-textobjects",
       config = function()
-        ---@diagnostic disable-next-line: missing-fields
-        require("nvim-treesitter.configs").setup({
-          textobjects = {
+        require("nvim-treesitter-textobjects").setup({
             select = {
               enable = true,
 
@@ -85,10 +83,9 @@ return {
                 ["[L"] = { query = "@loop.outer", desc = "Prev loop end" },
               },
             },
-          },
         })
 
-        local repeatable_move = require("nvim-treesitter.textobjects.repeatable_move")
+        local repeatable_move = require("nvim-treesitter-textobjects.repeatable_move")
 
         -- Repeat movements with ; and ,
         vim.keymap.set({ "n", "x", "o" }, ";", repeatable_move.repeat_last_move)
@@ -102,26 +99,9 @@ return {
       end,
     },
   },
-  init = function(plugin)
-    -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-    -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-    -- no longer trigger the **nvim-treesitter** module to be loaded in time.
-    -- Luckily, the only things that those plugins need are the custom queries, which we make available
-    -- during startup.
-    require("lazy.core.loader").add_to_rtp(plugin)
-    require("nvim-treesitter.query_predicates")
-  end,
-  -- Lazy-load on command
-  cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-  opts = {
-    highlight = { enable = true },
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-    indent = { enable = true },
-    ensure_installed = {
+  config = function()
+    local ts = require("nvim-treesitter")
+    ts.install {
       "bash",
       "c",
       "cpp",
@@ -148,19 +128,6 @@ return {
       "vimdoc",
       "xml",
       "yaml",
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<A-o>",
-        node_incremental = "<A-o>",
-        scope_incremental = false,
-        node_decremental = "<A-i>",
-      },
-    },
-  },
-  -- Need to manually call setup because it resides in configs
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+    }
   end,
 }
